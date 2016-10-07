@@ -4,10 +4,12 @@
 
 #include "Source1_SdE.h"
 
+#include <memory>
 #include <basetsd.h>                    // 64bit INT
 #include <iostream>                     // cout, cin
 #include <time.h>                       // Laufzeitmessung
 #include <cassert>                      // assert
+#include <iterator>
 
 #define PRINT(X) cout << (#X) << "= " << (X) << endl; // Beschriftete Ausgabe
 
@@ -19,19 +21,24 @@ int main(int argc, char *argv[]) {
     // Definitionen
     clock_t start_clock, n1_clock, n2_clock;        // ZEITMESSUNG
     string dateiname = "Sieb235Ergebnis.pri";
-    const UINT64 num_bytes = 1 * (UINT64) pow(2, 20);        // Bytes fuer Vektor
+    const UINT64 num_bytes = 1 * (UINT64) pow(2, 20); // Bytes fuer Vektor
                                                     // feldgroesse enthaelt '0' als index.
-    const UINT64 feldgroesse = num_bytes * 8;       // Plaetze in Vektor
-    const UINT64 limit = zahl_an_ind23(feldgroesse - 1);
+    const UINT64 num_bits = num_bytes * 8;          // Plaetze fuer Kandidaten
+    const UINT64 limit = zahl_an_ind23(num_bits - 1);
     constexpr char asprung[] = { 6, 4, 2, 4, 2, 4, 6, 2 };
-    assert(index_von_zahl23(limit) < feldgroesse);
+    assert(index_von_zahl23(limit) < num_bits);
     PRINT(index_von_zahl23(limit));
-    PRINT(feldgroesse);
+    PRINT(num_bits);
     const UINT64 SQRT_LIMIT = UINT64(sqrt(limit));  // Vordefinition unterer Test-Start
                                                     // Beginn Zeitmessung
     PRINT(limit);
     PRINT(SQRT_LIMIT*SQRT_LIMIT);
+
+    auto arprime = make_unique<unsigned char[]>(num_bytes);
+    cout << "Array erstellt." << endl;
     start_clock = clock();
+    arprime[0] = 123;
+    cout << arprime[0];
 
     cin.get();
     return 0;
