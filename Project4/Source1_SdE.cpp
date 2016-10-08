@@ -16,3 +16,8 @@ using namespace std;
 void kappa() {
     cout << "kappa";
 }
+
+UINT64 erste_primzahl()
+{
+    return UINT64(7);
+}

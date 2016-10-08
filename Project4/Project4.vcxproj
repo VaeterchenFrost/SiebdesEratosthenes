@@ -114,6 +114,7 @@
     <ClCompile Include="Source1_SdE.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Kopf.h" />
     <ClInclude Include="Source1_SdE.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -26,5 +26,8 @@
     <ClInclude Include="Source1_SdE.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Kopf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -33,5 +33,8 @@ inline UINT64 zahl_an_ind23(UINT64 index) {
     return zahl;
 }
 
-
 void kappa();
+
+UINT64 erste_primzahl();
+
+int main(int argc, char * argv[]);
